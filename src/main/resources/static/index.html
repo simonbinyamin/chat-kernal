@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .bth {
+            display: none;
+        }
+
+        input[type=text] {
+            background-color: rgba(0,0,0,0.8);
+            width: 350px;
+            height: 40px;
+            bottom: 10px;
+            left: 10px;
+            padding: 5px;
+            color: white;
+            -webkit-border-radius:5px;
+            -moz-border-radius:5px;
+            -o-border-radius:5px;
+            -ms-border-radius:5px;
+        }
+        .color {
+                  background-color: #ff0000; 
+        }
+        .chat {
+     
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        
+
+        }
+        .close {
+              position: absolute;
+                right: 32px;
+                top: 32px;
+                width: 32px;
+                height: 32px;
+                opacity: 0.3;
+        }
+        .close:hover {
+            opacity: 1;
+          }
+        .close:before, .close:after {
+          position: absolute;
+          left: 15px;
+          content: ' ';
+          height: 33px;
+          width: 2px;
+          background-color: #333;
+        }
+        .close:before {
+          transform: rotate(45deg);
+        }
+        .close:after {
+          transform: rotate(-45deg);
+        }
+        .win{
+            width: 410px;
+            height: 210px;
+            overflow: scroll;
+        }
+    </style>
+    <title>Hello WebSocket</title>
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/main.css" rel="stylesheet">
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+      <!-- Latest compiled JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      
+      
+    <script src="/app.js"></script>
+</head>
+<body>
+            <nav class="navbar navbar-inverse">
+  <div  class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="http://localhost:29565/mychatwww/home">Chat server</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="http://localhost:29565/mychatwww/home">Home</a></li>
+      <li><a href="http://localhost:29565/mychatwww/register">Register</a></li>
+    </ul>
+  </div>
+</nav>
+    
+    
+<noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being
+    enabled. Please enable
+    Javascript and reload this page!</h2></noscript>
+<div id="main-content" class="chat color">
+        <div>
+            <div class="win">
+            <table id="conversation">
+                <thead>
+                <tr>
+                    <th id="ch"></th>
+                </tr>
+                </thead>
+                <tbody id="messages">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div>
+        <div>
+            <form>
+                <div>
+                    <button id="connect" class="bth" type="submit">Connect</button>
+                    <div class="close" id="disconnect"> 
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div>
+            <form>
+                <div>
+                     <button  id="send" class="btn btn-primary" type="submit">Send</button>
+                     <input type="text" id="name" placeholder="Typ something here...">
+                </div>
+         
+            </form>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
